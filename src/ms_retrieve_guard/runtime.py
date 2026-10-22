@@ -34,6 +34,11 @@ def gpu_slot(run_dir, limits):
             raise RuntimeError("Project disk budget exhausted")
         started = time.monotonic()
         row = {"run_dir": str(Path(run_dir).resolve()), "pid": os.getpid(), "started_unix": time.time(), "status": "running", "disk_bytes_before": disk_bytes}
+        telemetry_path = Path(run_dir) / "gpu_telemetry.csv"
+        telemetry_file = telemetry_path.open("w")
+        monitor = subprocess.Popen(["nvidia-smi", "--query-gpu=timestamp,memory.used,utilization.gpu,power.draw", "--format=csv", "--loop-ms=200"],
+                                   stdout=telemetry_file, stderr=subprocess.DEVNULL, env={**os.environ, "TZ": "UTC"})
+        row.update(telemetry_pid=monitor.pid, telemetry_path=str(telemetry_path), telemetry_period_ms=200)
         write_json(Path(run_dir) / "gpu_receipt.json", row)
         try:
             yield remaining
@@ -42,6 +47,13 @@ def gpu_slot(run_dir, limits):
             row.update(status="failed", error=str(exc))
             raise
         finally:
+            monitor.terminate()
+            try:
+                monitor.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                monitor.kill()
+                monitor.wait()
+            telemetry_file.close()
             row.update(gpu_wall_seconds=time.monotonic() - started, finished_unix=time.time())
             ledger["gpu_runs"].append(row)
             ledger["gpu_wall_seconds_total"] = sum(item["gpu_wall_seconds"] for item in ledger["gpu_runs"])
