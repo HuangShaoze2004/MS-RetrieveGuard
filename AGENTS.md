@@ -1,6 +1,7 @@
 # MS-RetrieveGuard working rules
 
 - Protect existing work. Do not modify other environments or manage other users' processes.
+- Develop directly on `main` and push to `origin/main`. The owner uses one branch; do not create feature branches for routine work unless explicitly requested.
 - Calibration and test are sealed for the first fourteen development days. Identity, split, duplicate, candidate eligibility, and exposure audits are allowed; model scores, embeddings, retrieval metrics, selector fitting, and threshold tuning on those parts are forbidden.
 - Group queries by standardized two-dimensional molecular identity. All spectra and candidate variants of a query molecule stay in one role. Never count repeated spectra, candidate variants, or model seeds as independent calibration samples.
 - Present/absent pairs have equal K. Remove every ground-truth-equivalent identity from absent pools. Filter insufficient pools consistently and report retention. Keep formula and measured-mass information conditions separate.

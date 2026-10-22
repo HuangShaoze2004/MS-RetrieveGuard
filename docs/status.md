@@ -7,7 +7,7 @@
 - 实际结果与限制：`reports/bootstrap.md`、`reports/bootstrap.json`。
 - 重建/恢复命令：`docs/reproduce.md`；已确认阶段计划：`docs/plan.md`。
 - 分层证据：`docs/evidence.jsonl`；原始配置、日志、模型及失败保存在本地`artifacts/runs/`。
-- 当前分支`research/bootstrap-audit`，修改和本地提交尚未推送。起始commit为`65f5a613d5399601f2e1dc3d8e6495432ba0b65f`；实际训练源码commit为`40aa6fa5ca200379bf7ea027087cd3df0f625c8a`。
+- 当前开发分支`main`；首包提交`497ce17`已快进合入。按项目所有者要求，后续直接在`main`开发并推送到`origin/main`，常规工作不另建分支。起始commit为`65f5a613d5399601f2e1dc3d8e6495432ba0b65f`；实际训练源码commit为`40aa6fa5ca200379bf7ea027087cd3df0f625c8a`。
 
 ## 已完成验收
 
