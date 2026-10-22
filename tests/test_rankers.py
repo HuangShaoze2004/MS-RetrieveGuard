@@ -139,6 +139,9 @@ def test_mlp_nn_smoke_saves_restorable_checkpoint_without_sealed_scores(tmp_path
     assert result["completed_steps"] == 3
     assert result["checkpoint_validation"]["optimizer_resume_equal"]
     assert result["checkpoint_validation"]["prediction_equal"]
+    assert result["score_permutation_validation"]["passed"]
+    assert len(result["score_permutation_validation"]["cases"]) == 8
+    assert json.loads((output / "score_permutation_validation.json").read_text())["passed"]
     with np.load(output / "scores.npz") as data:
         assert data["mlp_eval_present"].shape == (4, 2)
         assert data["nn_fit_absent"].shape == (4, 2)

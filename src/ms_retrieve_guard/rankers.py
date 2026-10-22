@@ -421,6 +421,40 @@ def _run_smoke(npz_path: Path, output: Path, config: dict, started: float) -> di
     score_times = {}
     nearest_rows = {}
     score_batch = int(config.get("score_batch_size", 16))
+    permutation_validation = {"passed": True, "permutation": "reverse_candidate_columns",
+                              "score_atol": 1e-6, "cases": {}, "elapsed_seconds": 0.0,
+                              "timing_note": "Canary wall time is excluded from production scoring_seconds."}
+
+    def validate_score_permutation(label: str, predictions: np.ndarray, candidates: np.ndarray,
+                                   original_scores: np.ndarray, keys: np.ndarray, query_ids: np.ndarray) -> None:
+        from .metrics import rank_order
+
+        _sync(device)
+        canary_started = time.monotonic()
+        permutation = np.arange(candidates.shape[1] - 1, -1, -1)
+        inverse = np.argsort(permutation)
+        permuted_scores = candidate_cosine_scores(
+            predictions, candidates[:, permutation], bitorder=bitorder,
+            batch_size=score_batch, device=device)
+        max_abs = float(np.max(np.abs(original_scores - permuted_scores[:, inverse])))
+        changed_top1 = 0
+        for row, query_id in enumerate(query_ids):
+            old_position = rank_order(original_scores[row], keys[row], str(query_id))[0]
+            new_position = rank_order(permuted_scores[row], keys[row, permutation], str(query_id))[0]
+            changed_top1 += str(keys[row, old_position]) != str(keys[row, permutation[new_position]])
+        _sync(device)
+        seconds = time.monotonic() - canary_started
+        passed = max_abs <= permutation_validation["score_atol"] and changed_top1 == 0
+        permutation_validation["cases"][label] = {"n_queries": len(query_ids),
+                                                   "max_abs_score_difference": max_abs,
+                                                   "changed_top1_identities": int(changed_top1),
+                                                   "elapsed_seconds": seconds, "passed": passed}
+        permutation_validation["passed"] &= passed
+        permutation_validation["elapsed_seconds"] += seconds
+        _json(output / "score_permutation_validation.json", permutation_validation)
+        if not passed:
+            raise RuntimeError(f"Candidate permutation score/top-identity validation failed for {label}")
+
     with torch.no_grad():
         for prefix in ("fit", "eval"):
             _sync(device)
@@ -435,6 +469,11 @@ def _run_smoke(npz_path: Path, output: Path, config: dict, started: float) -> di
                     batch_size=score_batch, device=device)
             _sync(device)
             score_times["mlp_" + prefix] = time.monotonic() - score_start
+            for variant in ("present", "absent"):
+                validate_score_permutation(
+                    f"mlp_{prefix}_{variant}", predictions, arrays[f"{prefix}_candidates_{variant}"],
+                    score_arrays[f"mlp_{prefix}_{variant}"], arrays[f"{prefix}_keys_{variant}"],
+                    arrays[f"{prefix}_query_ids"])
             _sync(device)
             score_start = time.monotonic()
             for variant in ("present", "absent"):
@@ -446,6 +485,14 @@ def _run_smoke(npz_path: Path, output: Path, config: dict, started: float) -> di
                 nearest_rows[prefix] = nearest
             _sync(device)
             score_times["nn_" + prefix] = time.monotonic() - score_start
+            # Reuse the nearest training fingerprints; no additional NN search.
+            nn_predictions = np.unpackbits(arrays["train_fp"][nearest_rows[prefix]], axis=-1,
+                                           bitorder=bitorder)[..., :output_dim].astype(np.float32)
+            for variant in ("present", "absent"):
+                validate_score_permutation(
+                    f"nn_{prefix}_{variant}", nn_predictions, arrays[f"{prefix}_candidates_{variant}"],
+                    score_arrays[f"nn_{prefix}_{variant}"], arrays[f"{prefix}_keys_{variant}"],
+                    arrays[f"{prefix}_query_ids"])
             if time.monotonic() - started >= max_gpu_seconds:
                 raise RuntimeError("GPU wall-time cap reached during scoring; no complete-run claim")
     score_arrays.update({f"nn_{prefix}_train_indices": value for prefix, value in nearest_rows.items()})
@@ -480,6 +527,7 @@ def _run_smoke(npz_path: Path, output: Path, config: dict, started: float) -> di
               "scores_path": str((output / "scores.npz").resolve()),
               "checkpoint_path": str(checkpoint_path.resolve()),
               "checkpoint_validation": checkpoint_validation,
+              "score_permutation_validation": permutation_validation,
               "elapsed_seconds": time.monotonic() - started,
               "role_audit": audit["roles"],
               "caveat": "Fit/eval scores are development outputs. No calibration/test scores were loaded or produced."}
