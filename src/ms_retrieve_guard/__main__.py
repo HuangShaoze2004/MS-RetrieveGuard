@@ -54,7 +54,17 @@ def main(argv=None):
         elif args.command == "build-smoke":
             from .data import build_smoke
             result = build_smoke(data_config["output_dir"], data_config["smoke_path"], data_config)
+            from .duplicates import audit_spectrum_duplicates
+            duplicate = audit_spectrum_duplicates(data_config["tsv"], Path(data_config["output_dir"]) / "audit.sqlite",
+                                                  Path(data_config["output_dir"]) / "duplicates", data_config["smoke_path"])
+            if not duplicate["selected_gate_passed"]:
+                raise ValueError("Selected cohort has strongly suspicious cross-role composite duplicates; inspect before training")
+            result["duplicate_gate_passed"] = True
         elif args.command == "smoke":
+            duplicate_path = Path(data_config["output_dir"]) / "duplicates" / "duplicate_summary.json"
+            duplicate = json.loads(duplicate_path.read_text())
+            if duplicate["status"] != "complete" or not duplicate["selected_gate_passed"] or duplicate["sources"]["smoke_npz_sha256"] != sha256_file(data_config["smoke_path"]):
+                raise ValueError("A passed duplicate gate bound to this NPZ is required before training")
             from .rankers import run_smoke
             from .runtime import gpu_slot
             with gpu_slot(run_dir, config["limits"]) as remaining:

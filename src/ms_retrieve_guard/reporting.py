@@ -11,6 +11,7 @@ def write_bootstrap_report(audit_dir, run_dir, destination="reports/bootstrap.md
     audit = json.loads((audit_dir / "audit_summary.json").read_text())
     benchmark = json.loads((run_dir / "benchmark.json").read_text())
     selection = json.loads((run_dir / "selection_results.json").read_text())
+    duplicate = json.loads((audit_dir / "duplicates" / "duplicate_summary.json").read_text())
     if audit["status"] != "complete" or benchmark["budget_stopped"] or benchmark["completed_steps"] != benchmark["requested_steps"]:
         raise ValueError("Incomplete runs cannot produce a successful bootstrap report")
     if selection["npz_sha256"] != benchmark["npz_sha256"]:
@@ -44,6 +45,11 @@ def write_bootstrap_report(audit_dir, run_dir, destination="reports/bootstrap.md
         metric = model["selectors"]["margin"]["eval"]
         rows.append(f"| {name} | {fmt(model['retrieval_present']['eval']['recall_at_1'])} | {fmt(metric['present_acceptance_rate'])} | {fmt(metric['present_accepted_error_rate'])} | {fmt(metric['unknown_far'])} |")
     rows += ["", "这组数值仅验证输出链路；模型训练数据与查询均为小子集，不能据此证明研究缺口或比较论文方法。",
+             "", "## 重复谱图审计", "",
+             f"- 原始峰字符串跨角色/跨身份相同：{duplicate['duplicates']['raw_peaks']['cross_role_cross_identity_groups']}组；这不等于已确认泄漏。",
+             f"- 数值峰列表、前体和加合物联合键的跨角色/跨身份相同：{duplicate['duplicates']['composite']['cross_role_cross_identity_groups']}组。",
+             f"- 首包选中查询中，联合键相同且至少4峰的阻断冲突：{duplicate['selected_cross_role_count']}条；门禁通过：{duplicate['selected_gate_passed']}。",
+             "- 共同单峰和前体不同的案例单列；未执行近重复搜索，不声称完全无泄漏。",
              "", "## 溯源", "", f"- 原始运行目录：`{run_dir}`。", f"- 检索源码commit：`{benchmark['source_commit']}`；实际源码内容hash另存运行回执。",
              f"- 输入NPZ SHA256：`{benchmark['npz_sha256']}`。", f"- checkpoint SHA256：`{benchmark['checkpoint_sha256']}`。",
              f"- 候选／划分清单SHA256：`{audit['manifest_sha256']}`。",
@@ -52,7 +58,7 @@ def write_bootstrap_report(audit_dir, run_dir, destination="reports/bootstrap.md
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text("\n".join(rows))
     public = {"kind": "engineering_smoke_not_scientific_validation", "audit": {key: audit[key] for key in ["source_sha256", "query_rows", "molecules", "quarantined_rows", "row_reason_counts", "cross_fold_identities", "conflicting_query_identities", "retention", "main_k", "certification_sample_gate_passed", "manifest_sha256"]},
-              "benchmark": benchmark, "selection": selection, "source_artifacts_sha256": {
+              "benchmark": benchmark, "selection": selection, "duplicate_audit": duplicate, "source_artifacts_sha256": {
                   name: sha256_file(path) for name, path in {"audit_summary": audit_dir/"audit_summary.json", "benchmark": run_dir/"benchmark.json", "selection": run_dir/"selection_results.json"}.items()}}
     write_json(destination.with_suffix(".json"), public)
     return {"report": str(destination), "sha256": sha256_file(destination)}
