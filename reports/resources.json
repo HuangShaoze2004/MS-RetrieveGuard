@@ -1,0 +1,27 @@
+{
+  "gpu_wall_seconds_total": 32.9296505227685,
+  "gpu_wall_hours_total": 0.009147125145213472,
+  "gpu_wall_hours_limit": 2,
+  "physical_gpu_used_peak_mib_sampled": 1039.0,
+  "telemetry_period_ms": 200,
+  "physical_gpu_used_peak_caveat": "Device-wide nvidia-smi samples include CUDA context/other driver usage; project observed no other compute tasks at start. Sampling is not an instantaneous maximum.",
+  "project_allocated_disk_bytes": 14486052864,
+  "project_disk_limit_bytes": 21474836480,
+  "data_download_bytes": 631503764,
+  "environment_wheel_payload_bytes": 2961106026,
+  "download_payload_estimate_bytes": 3624261748,
+  "download_limit_bytes": 6000000000,
+  "download_caveat": "Wheel sizes verified against cache URLs/PyPI/lock; Python payload rounded; no exact historical network/retry counter. See environment_downloads.json.",
+  "audit_parallel_wall_seconds": 1751.437726303935,
+  "audit_initial_interrupted_wall_seconds": 553.9253921508789,
+  "build_including_duplicate_audit_wall_seconds": 55.5124843865633,
+  "train_candidate_structure_overlap_with_query_roles": {
+    "train": 1349,
+    "test": 4,
+    "fit_selector": 2,
+    "pilot_dev": 3,
+    "calibration": 4
+  },
+  "structure_exposure_note": "Public candidate structures may overlap held-out identities. This is unlabeled structural exposure, not access to held-out spectrum-structure labels. No pretrained spectrum model was used.",
+  "run_dir": "artifacts/runs/bootstrap-20261022"
+}

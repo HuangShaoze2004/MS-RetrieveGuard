@@ -1,0 +1,227 @@
+{
+  "successful_runs": [
+    {
+      "run": "audit-parallel",
+      "command": "audit",
+      "receipt_git_commit": "65f5a613d5399601f2e1dc3d8e6495432ba0b65f",
+      "recovered_source": {
+        "src/ms_retrieve_guard/__init__.py": {
+          "sha256": "8cc7f4baf9e9aa8fd198359dbad2074e2756061ddea3275dff50d263d7fc3b7b",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/__main__.py": {
+          "sha256": "e104fd47bc8c2a650b7c7e914ad624ac81dbc1ab43e3c962a4ffd7352c016743",
+          "commit": "5417a7331fdce9e87325c34689c0596d5b73ba5d"
+        },
+        "src/ms_retrieve_guard/chemistry.py": {
+          "sha256": "d81d8d75bbfdff70864b95a418bb7be3e8e31c3d837ba5ecb4bafef495d1bae3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/data.py": {
+          "sha256": "33be3f729e3ea42797f2dd14ec2a2e2cad94921fa077e6372647a81c8e7c7ce2",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/io.py": {
+          "sha256": "549923c7b8c3f104a63a94e59e9bffaa10c5b1632c76a4bbe68f23ed248664fe",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/metrics.py": {
+          "sha256": "c03d6536267ffa1e28080189273d9c99a670535ea5d6867e2d81511421f0f1d3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/runtime.py": {
+          "sha256": "6dbf039e84241fc749c2f8ff994e1790b22291edee5ef94cfe4e34debe506e0b",
+          "commit": "8c2ddfc192e4bf1049c438af372f10d71f8e76a4"
+        },
+        "src/ms_retrieve_guard/selection.py": {
+          "sha256": "55dac2eb98d7a27cf2af1f3dd59c661a6908a4c2b108e1cb8aa52df127800248",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "configs/pilot.yaml": {
+          "sha256": "6a77a0678ebf91f3e6805bce993483a6874375e87069022d3c70ebaa0aacd8e0",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        }
+      },
+      "unrecovered_snapshot_files": [
+        "src/ms_retrieve_guard/rankers.py"
+      ],
+      "required_used_modules_missing": [],
+      "used_code_recoverable": true
+    },
+    {
+      "run": "build-initial",
+      "command": "build-smoke",
+      "receipt_git_commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a",
+      "recovered_source": {
+        "src/ms_retrieve_guard/__init__.py": {
+          "sha256": "8cc7f4baf9e9aa8fd198359dbad2074e2756061ddea3275dff50d263d7fc3b7b",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/__main__.py": {
+          "sha256": "357f763b95a69d16f2ff08520aebf1de18a3690146bc4f6e342e9b7a03ccb015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/chemistry.py": {
+          "sha256": "d81d8d75bbfdff70864b95a418bb7be3e8e31c3d837ba5ecb4bafef495d1bae3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/data.py": {
+          "sha256": "33be3f729e3ea42797f2dd14ec2a2e2cad94921fa077e6372647a81c8e7c7ce2",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/duplicates.py": {
+          "sha256": "0a31f7728f8de4aeecd7f66dd4a93dd49992da51563412b82715ba2cd96f0015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/io.py": {
+          "sha256": "549923c7b8c3f104a63a94e59e9bffaa10c5b1632c76a4bbe68f23ed248664fe",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/metrics.py": {
+          "sha256": "c03d6536267ffa1e28080189273d9c99a670535ea5d6867e2d81511421f0f1d3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/rankers.py": {
+          "sha256": "03019747886029d5f15a4a235b6992f432205ff38f62aa45339c59e1865e13f1",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/reporting.py": {
+          "sha256": "29fd2d570249279e04ce9e68beea76d36b0325a3bfb427fc8e03804141e5908a",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/runtime.py": {
+          "sha256": "afe258a5ce89ee15a3ec385f66716d5491e727e5d885815e793d13b7e6867e28",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/selection.py": {
+          "sha256": "55dac2eb98d7a27cf2af1f3dd59c661a6908a4c2b108e1cb8aa52df127800248",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "configs/pilot.yaml": {
+          "sha256": "6a77a0678ebf91f3e6805bce993483a6874375e87069022d3c70ebaa0aacd8e0",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        }
+      },
+      "unrecovered_snapshot_files": [],
+      "required_used_modules_missing": [],
+      "used_code_recoverable": true
+    },
+    {
+      "run": "bootstrap-20261022",
+      "command": "smoke",
+      "receipt_git_commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a",
+      "recovered_source": {
+        "src/ms_retrieve_guard/__init__.py": {
+          "sha256": "8cc7f4baf9e9aa8fd198359dbad2074e2756061ddea3275dff50d263d7fc3b7b",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/__main__.py": {
+          "sha256": "357f763b95a69d16f2ff08520aebf1de18a3690146bc4f6e342e9b7a03ccb015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/chemistry.py": {
+          "sha256": "d81d8d75bbfdff70864b95a418bb7be3e8e31c3d837ba5ecb4bafef495d1bae3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/data.py": {
+          "sha256": "33be3f729e3ea42797f2dd14ec2a2e2cad94921fa077e6372647a81c8e7c7ce2",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/duplicates.py": {
+          "sha256": "0a31f7728f8de4aeecd7f66dd4a93dd49992da51563412b82715ba2cd96f0015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/io.py": {
+          "sha256": "549923c7b8c3f104a63a94e59e9bffaa10c5b1632c76a4bbe68f23ed248664fe",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/metrics.py": {
+          "sha256": "c03d6536267ffa1e28080189273d9c99a670535ea5d6867e2d81511421f0f1d3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/rankers.py": {
+          "sha256": "03019747886029d5f15a4a235b6992f432205ff38f62aa45339c59e1865e13f1",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/reporting.py": {
+          "sha256": "29fd2d570249279e04ce9e68beea76d36b0325a3bfb427fc8e03804141e5908a",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/runtime.py": {
+          "sha256": "afe258a5ce89ee15a3ec385f66716d5491e727e5d885815e793d13b7e6867e28",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/selection.py": {
+          "sha256": "55dac2eb98d7a27cf2af1f3dd59c661a6908a4c2b108e1cb8aa52df127800248",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "configs/pilot.yaml": {
+          "sha256": "6a77a0678ebf91f3e6805bce993483a6874375e87069022d3c70ebaa0aacd8e0",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        }
+      },
+      "unrecovered_snapshot_files": [],
+      "required_used_modules_missing": [],
+      "used_code_recoverable": true
+    },
+    {
+      "run": "bootstrap-20261022",
+      "command": "select-smoke",
+      "receipt_git_commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a",
+      "recovered_source": {
+        "src/ms_retrieve_guard/__init__.py": {
+          "sha256": "8cc7f4baf9e9aa8fd198359dbad2074e2756061ddea3275dff50d263d7fc3b7b",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/__main__.py": {
+          "sha256": "357f763b95a69d16f2ff08520aebf1de18a3690146bc4f6e342e9b7a03ccb015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/chemistry.py": {
+          "sha256": "d81d8d75bbfdff70864b95a418bb7be3e8e31c3d837ba5ecb4bafef495d1bae3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/data.py": {
+          "sha256": "33be3f729e3ea42797f2dd14ec2a2e2cad94921fa077e6372647a81c8e7c7ce2",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/duplicates.py": {
+          "sha256": "0a31f7728f8de4aeecd7f66dd4a93dd49992da51563412b82715ba2cd96f0015",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/io.py": {
+          "sha256": "549923c7b8c3f104a63a94e59e9bffaa10c5b1632c76a4bbe68f23ed248664fe",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/metrics.py": {
+          "sha256": "c03d6536267ffa1e28080189273d9c99a670535ea5d6867e2d81511421f0f1d3",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/rankers.py": {
+          "sha256": "03019747886029d5f15a4a235b6992f432205ff38f62aa45339c59e1865e13f1",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/reporting.py": {
+          "sha256": "29fd2d570249279e04ce9e68beea76d36b0325a3bfb427fc8e03804141e5908a",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/runtime.py": {
+          "sha256": "afe258a5ce89ee15a3ec385f66716d5491e727e5d885815e793d13b7e6867e28",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "src/ms_retrieve_guard/selection.py": {
+          "sha256": "55dac2eb98d7a27cf2af1f3dd59c661a6908a4c2b108e1cb8aa52df127800248",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        },
+        "configs/pilot.yaml": {
+          "sha256": "6a77a0678ebf91f3e6805bce993483a6874375e87069022d3c70ebaa0aacd8e0",
+          "commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+        }
+      },
+      "unrecovered_snapshot_files": [],
+      "required_used_modules_missing": [],
+      "used_code_recoverable": true
+    }
+  ],
+  "initial_interrupted_audit": "Working-tree checksums and logs retained; no numerical retrieval conclusion depends on this interrupted precommit attempt. Future CLI runs archive exact working-tree source bytes at launch."
+}

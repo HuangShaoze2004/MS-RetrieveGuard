@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "tests": "32 passed;8 upstream RDKit deprecation warnings",
+  "source_ast_valid": true,
+  "n_molecules_in_manifest": 28895,
+  "candidate_K": 64,
+  "n_scored_dev_molecules": 100,
+  "per_query_development_rows": 4000,
+  "input_checkpoint_score_manifest_hashes_agree": true,
+  "checkpoint_prediction_optimizer_rng_restore": true,
+  "eight_score_permutation_cases_pass": true,
+  "calibration_test_model_outputs": false,
+  "sealed_spectra_in_processed_store": 0,
+  "gpu_wall_seconds_total": 32.9296505227685,
+  "allocated_project_disk_bytes": 14486052864,
+  "download_payload_estimate_bytes": 3624261748,
+  "download_is_exact_network_meter": false,
+  "runtime_source_commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a"
+}

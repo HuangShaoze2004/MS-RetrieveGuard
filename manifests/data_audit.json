@@ -1,0 +1,168 @@
+{
+  "status": "complete",
+  "information_condition": "known_formula",
+  "paths": {
+    "tsv": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/raw/MassSpecGym1.5.tsv",
+    "candidates": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/raw/MassSpecGym1.5_retrieval_candidates_formula.json"
+  },
+  "source_sha256": {
+    "tsv": "50cfdd1d22f79543c59555f9ce43c6893bd788a19a42b21fb4e2e3a54673c06a",
+    "candidates": "454636d2346aebb3cd87edc2efc3fa1bf91eb8e0219edff5880f02aa537ac954"
+  },
+  "seed": 1729,
+  "mass_tolerance_da": 0.1,
+  "chemistry": {
+    "standardization": "normalize-preserve-charge-reject-fragments-no-stereo-v1",
+    "rdkit_version": "2023.09.4",
+    "identity": "first14_standard_inchikey_recomputed_after_normalization_and_stereo_removal",
+    "fingerprint": {
+      "kind": "Morgan",
+      "radius": 2,
+      "bits": 4096,
+      "include_chirality": false,
+      "packed_bitorder": "little"
+    },
+    "neutralize": false,
+    "largest_fragment": false,
+    "multicomponent": "quarantine"
+  },
+  "query_rows": 231104,
+  "molecules": 28895,
+  "quarantined_rows": 289,
+  "row_reason_counts": {
+    "identity_mismatch": 272,
+    "mass_mismatch": 58,
+    "identity_formula_mass_conflict": 18
+  },
+  "cross_fold_identities": 0,
+  "candidate_alias_entries": 31572,
+  "conflicting_query_identities": 1,
+  "candidate_identity_multiple_formula_count": 1,
+  "candidate_occurrences_processed": 6763771,
+  "candidate_chemistry_errors": 216662,
+  "chemistry_execution": {
+    "workers": 4,
+    "batch_size": 1024,
+    "start_method": "spawn"
+  },
+  "candidate_formula_rejected": 0,
+  "retention": {
+    "calibration": {
+      "total_molecules": 1273,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 1034,
+          "retained_fraction": 0.812254516889238
+        },
+        "64": {
+          "eligible_molecules": 926,
+          "retained_fraction": 0.7274155538098979
+        },
+        "128": {
+          "eligible_molecules": 791,
+          "retained_fraction": 0.6213668499607227
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    },
+    "dev_ranker": {
+      "total_molecules": 477,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 383,
+          "retained_fraction": 0.8029350104821803
+        },
+        "64": {
+          "eligible_molecules": 350,
+          "retained_fraction": 0.7337526205450734
+        },
+        "128": {
+          "eligible_molecules": 304,
+          "retained_fraction": 0.6373165618448637
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    },
+    "fit_selector": {
+      "total_molecules": 795,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 648,
+          "retained_fraction": 0.8150943396226416
+        },
+        "64": {
+          "eligible_molecules": 561,
+          "retained_fraction": 0.7056603773584905
+        },
+        "128": {
+          "eligible_molecules": 474,
+          "retained_fraction": 0.5962264150943396
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    },
+    "pilot_dev": {
+      "total_molecules": 637,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 517,
+          "retained_fraction": 0.8116169544740973
+        },
+        "64": {
+          "eligible_molecules": 452,
+          "retained_fraction": 0.7095761381475667
+        },
+        "128": {
+          "eligible_molecules": 380,
+          "retained_fraction": 0.5965463108320251
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    },
+    "test": {
+      "total_molecules": 2995,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 2450,
+          "retained_fraction": 0.8180300500834724
+        },
+        "64": {
+          "eligible_molecules": 2215,
+          "retained_fraction": 0.7395659432387313
+        },
+        "128": {
+          "eligible_molecules": 1924,
+          "retained_fraction": 0.6424040066777963
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    },
+    "train": {
+      "total_molecules": 22718,
+      "by_k": {
+        "32": {
+          "eligible_molecules": 21178,
+          "retained_fraction": 0.9322123426357954
+        },
+        "64": {
+          "eligible_molecules": 20035,
+          "retained_fraction": 0.8818998151245708
+        },
+        "128": {
+          "eligible_molecules": 18072,
+          "retained_fraction": 0.7954925609648736
+        }
+      },
+      "truth_missing_from_original_pool": 0
+    }
+  },
+  "main_k": 64,
+  "certification_sample_gate_passed": true,
+  "sealed_roles": [
+    "calibration",
+    "test"
+  ],
+  "sealed_spectra_stored": false,
+  "candidate_labels": "explicit standardized identity; no fingerprint matching",
+  "manifest_sha256": "4243b5da5bb90966216ffb81e6241578545372105cb4c433a089c84df663fa9a"
+}

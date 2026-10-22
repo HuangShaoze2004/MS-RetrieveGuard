@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import time
@@ -37,9 +38,15 @@ def main(argv=None):
     # A dirty tree is recorded by content, including new source files, not just git diff.
     source_paths = sorted(Path("src").rglob("*.py")) + sorted(Path("configs").rglob("*.yaml"))
     snapshot = {str(p): sha256_file(p) for p in source_paths}
+    # Preserve dirty source bytes too: a checksum alone cannot reconstruct a
+    # failed experiment after the working tree changes.
+    for source in source_paths + [Path("pyproject.toml"), Path("requirements.lock")]:
+        archived = run_dir / "source" / source
+        archived.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, archived)
     receipt = {"status": "running", "command": args.command, "pid": os.getpid(), "started_utc": time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
                "started_unix": time.time(), "git_commit": git, "git_status": dirty, "source_sha256": snapshot,
-               "config": config, "config_sha256": sha256_file(config_path), "python": sys.executable,
+               "source_archive": str(run_dir / "source"), "config": config, "config_sha256": sha256_file(config_path), "python": sys.executable,
                "sealed_roles": ["calibration", "test"]}
     write_json(status_path, receipt)
     write_json(run_dir / "config.json", config)

@@ -1,0 +1,189 @@
+{
+  "status": "complete",
+  "schema_version": 1,
+  "scope": "identity_and_leakage_audit_only",
+  "model_inputs_produced": false,
+  "model_scores_or_metrics_computed": false,
+  "sealed_roles_use": "Exact duplicate leakage audit only; no embedding, binning or model scoring.",
+  "rules": {
+    "raw_peaks": "SHA256 of the exact mzs string, a NUL, and exact intensities string; matches preliminary 133-group/371-row audit method.",
+    "numeric_peaks": "Parse all tokens as finite nonnegative float64, sort (mz,intensity) pairs, serialize float.hex pairs as compact JSON; signed zero normalized, no rounding or binning, preserve repeated peaks.",
+    "intensity_normalization": "none; spectra differing by an intensity scale factor are not declared equal",
+    "composite": "SHA256 of numeric peak hash + exact parsed float64 precursor_mz + stripped adduct; missing precursor/adduct excluded. Instrument and collision_energy recorded as diagnostics, not equality keys.",
+    "peak_buckets": "Mutually exclusive single_peak, two_or_three_peaks, at_least_four_peaks; invalid_numeric separate.",
+    "blocking": "Only selected cross-role AND cross-identity composite-equal queries with >=4 peaks block the smoke; equality alone does not prove copied data or leakage."
+  },
+  "denominators": {
+    "identity_audited_rows": 230815,
+    "excluded_identity_audit_rows": 289,
+    "source_rows_audited": 230815,
+    "numeric_valid_rows": 230815,
+    "numeric_invalid_rows": 0,
+    "composite_eligible_rows": 230815,
+    "roles": {
+      "train": 193846,
+      "fit_selector": 4538,
+      "calibration": 8493,
+      "test": 17550,
+      "dev_ranker": 2763,
+      "pilot_dev": 3625
+    },
+    "selected_queries": 1200,
+    "selected_roles": {
+      "train": 1000,
+      "fit_selector": 100,
+      "dev_ranker": 100
+    }
+  },
+  "numeric_failures": {},
+  "duplicates": {
+    "raw_peaks": {
+      "hashed_rows": 230815,
+      "unique_hashes": 227738,
+      "duplicate_groups": 2720,
+      "rows_in_duplicate_groups": 5797,
+      "groups_with_within_identity_repeats": 2110,
+      "rows_in_within_identity_repeats": 4377,
+      "cross_identity_groups": 614,
+      "rows_in_cross_identity_groups": 1434,
+      "cross_role_groups": 133,
+      "rows_in_cross_role_groups": 371,
+      "cross_role_cross_identity_groups": 133,
+      "rows_in_cross_role_cross_identity_groups": 371,
+      "cross_role_cross_identity_groups_by_peak_count": {
+        "single_peak": 106,
+        "at_least_four_peaks": 27
+      },
+      "cross_role_cross_identity_rows_by_peak_count": {
+        "single_peak": 317,
+        "at_least_four_peaks": 54
+      }
+    },
+    "numeric_peaks": {
+      "hashed_rows": 230815,
+      "unique_hashes": 227738,
+      "duplicate_groups": 2720,
+      "rows_in_duplicate_groups": 5797,
+      "groups_with_within_identity_repeats": 2110,
+      "rows_in_within_identity_repeats": 4377,
+      "cross_identity_groups": 614,
+      "rows_in_cross_identity_groups": 1434,
+      "cross_role_groups": 133,
+      "rows_in_cross_role_groups": 371,
+      "cross_role_cross_identity_groups": 133,
+      "rows_in_cross_role_cross_identity_groups": 371,
+      "cross_role_cross_identity_groups_by_peak_count": {
+        "single_peak": 106,
+        "at_least_four_peaks": 27
+      },
+      "cross_role_cross_identity_rows_by_peak_count": {
+        "single_peak": 317,
+        "at_least_four_peaks": 54
+      }
+    },
+    "composite": {
+      "hashed_rows": 230815,
+      "unique_hashes": 228265,
+      "duplicate_groups": 2374,
+      "rows_in_duplicate_groups": 4924,
+      "groups_with_within_identity_repeats": 2010,
+      "rows_in_within_identity_repeats": 4146,
+      "cross_identity_groups": 365,
+      "rows_in_cross_identity_groups": 780,
+      "cross_role_groups": 12,
+      "rows_in_cross_role_groups": 24,
+      "cross_role_cross_identity_groups": 12,
+      "rows_in_cross_role_cross_identity_groups": 24,
+      "cross_role_cross_identity_groups_by_peak_count": {
+        "at_least_four_peaks": 12
+      },
+      "cross_role_cross_identity_rows_by_peak_count": {
+        "at_least_four_peaks": 24
+      }
+    }
+  },
+  "selected_duplicates": {
+    "raw_peaks": {
+      "hashed_rows": 1200,
+      "unique_hashes": 1200,
+      "duplicate_groups": 0,
+      "rows_in_duplicate_groups": 0,
+      "groups_with_within_identity_repeats": 0,
+      "rows_in_within_identity_repeats": 0,
+      "cross_identity_groups": 0,
+      "rows_in_cross_identity_groups": 0,
+      "cross_role_groups": 0,
+      "rows_in_cross_role_groups": 0,
+      "cross_role_cross_identity_groups": 0,
+      "rows_in_cross_role_cross_identity_groups": 0,
+      "cross_role_cross_identity_groups_by_peak_count": {},
+      "cross_role_cross_identity_rows_by_peak_count": {}
+    },
+    "numeric_peaks": {
+      "hashed_rows": 1200,
+      "unique_hashes": 1200,
+      "duplicate_groups": 0,
+      "rows_in_duplicate_groups": 0,
+      "groups_with_within_identity_repeats": 0,
+      "rows_in_within_identity_repeats": 0,
+      "cross_identity_groups": 0,
+      "rows_in_cross_identity_groups": 0,
+      "cross_role_groups": 0,
+      "rows_in_cross_role_groups": 0,
+      "cross_role_cross_identity_groups": 0,
+      "rows_in_cross_role_cross_identity_groups": 0,
+      "cross_role_cross_identity_groups_by_peak_count": {},
+      "cross_role_cross_identity_rows_by_peak_count": {}
+    },
+    "composite": {
+      "hashed_rows": 1200,
+      "unique_hashes": 1200,
+      "duplicate_groups": 0,
+      "rows_in_duplicate_groups": 0,
+      "groups_with_within_identity_repeats": 0,
+      "rows_in_within_identity_repeats": 0,
+      "cross_identity_groups": 0,
+      "rows_in_cross_identity_groups": 0,
+      "cross_role_groups": 0,
+      "rows_in_cross_role_groups": 0,
+      "cross_role_cross_identity_groups": 0,
+      "rows_in_cross_role_cross_identity_groups": 0,
+      "cross_role_cross_identity_groups_by_peak_count": {},
+      "cross_role_cross_identity_rows_by_peak_count": {}
+    }
+  },
+  "selected_cross_role_count": 0,
+  "selected_cross_role_count_unit": "unique selected query IDs in blocking composite groups, not independent samples or peak-only groups",
+  "selected_cross_role_group_count": 0,
+  "selected_conflicting_query_ids": [],
+  "selected_gate_passed": true,
+  "sources": {
+    "tsv": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/raw/MassSpecGym1.5.tsv",
+    "tsv_sha256": "50cfdd1d22f79543c59555f9ce43c6893bd788a19a42b21fb4e2e3a54673c06a",
+    "audit_sqlite": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/audit.sqlite",
+    "identity_metadata_sha256": "b75785f91f8b9200f1364bb642e8139c287751545075af4000dfe775344ce0f4",
+    "smoke_npz": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/smoke.npz",
+    "smoke_npz_sha256": "254d698b3300be99c2a203d1767783fbefc7627d6bc6957e03a0fd4e9b083f65"
+  },
+  "outputs": {
+    "spectrum_hashes.csv": {
+      "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/spectrum_hashes.csv",
+      "sha256": "43345723c4988a2e1f0030f2667610e1c0c6283cef24bdf5113b44a66dc8924f"
+    },
+    "duplicate_groups.csv": {
+      "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/duplicate_groups.csv",
+      "sha256": "dcafd4519dabe4637919848b7c6315a50e8f02effde8e908a4126145eda55204"
+    },
+    "selected_blocking_conflicts.csv": {
+      "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/selected_blocking_conflicts.csv",
+      "sha256": "333066bfc16759af826444653a14e93fbd4bea3372dafd4ff9364109b1e35719"
+    }
+  },
+  "limitations": [
+    "Exact equality audit only; no near-duplicate search or numerical tolerance.",
+    "Shared low-information/common-fragment peak lists do not establish leakage.",
+    "Metadata cannot establish whether observations were copied; source-level verification may be required.",
+    "This audit does not inspect candidate pools or change molecule roles/SQLite records."
+  ],
+  "elapsed_seconds": 27.97252020984888
+}

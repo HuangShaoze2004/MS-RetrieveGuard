@@ -1,0 +1,951 @@
+{
+  "kind": "engineering_smoke_not_scientific_validation",
+  "audit": {
+    "source_sha256": {
+      "tsv": "50cfdd1d22f79543c59555f9ce43c6893bd788a19a42b21fb4e2e3a54673c06a",
+      "candidates": "454636d2346aebb3cd87edc2efc3fa1bf91eb8e0219edff5880f02aa537ac954"
+    },
+    "query_rows": 231104,
+    "molecules": 28895,
+    "quarantined_rows": 289,
+    "row_reason_counts": {
+      "identity_mismatch": 272,
+      "mass_mismatch": 58,
+      "identity_formula_mass_conflict": 18
+    },
+    "cross_fold_identities": 0,
+    "conflicting_query_identities": 1,
+    "retention": {
+      "calibration": {
+        "total_molecules": 1273,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 1034,
+            "retained_fraction": 0.812254516889238
+          },
+          "64": {
+            "eligible_molecules": 926,
+            "retained_fraction": 0.7274155538098979
+          },
+          "128": {
+            "eligible_molecules": 791,
+            "retained_fraction": 0.6213668499607227
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      },
+      "dev_ranker": {
+        "total_molecules": 477,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 383,
+            "retained_fraction": 0.8029350104821803
+          },
+          "64": {
+            "eligible_molecules": 350,
+            "retained_fraction": 0.7337526205450734
+          },
+          "128": {
+            "eligible_molecules": 304,
+            "retained_fraction": 0.6373165618448637
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      },
+      "fit_selector": {
+        "total_molecules": 795,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 648,
+            "retained_fraction": 0.8150943396226416
+          },
+          "64": {
+            "eligible_molecules": 561,
+            "retained_fraction": 0.7056603773584905
+          },
+          "128": {
+            "eligible_molecules": 474,
+            "retained_fraction": 0.5962264150943396
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      },
+      "pilot_dev": {
+        "total_molecules": 637,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 517,
+            "retained_fraction": 0.8116169544740973
+          },
+          "64": {
+            "eligible_molecules": 452,
+            "retained_fraction": 0.7095761381475667
+          },
+          "128": {
+            "eligible_molecules": 380,
+            "retained_fraction": 0.5965463108320251
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      },
+      "test": {
+        "total_molecules": 2995,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 2450,
+            "retained_fraction": 0.8180300500834724
+          },
+          "64": {
+            "eligible_molecules": 2215,
+            "retained_fraction": 0.7395659432387313
+          },
+          "128": {
+            "eligible_molecules": 1924,
+            "retained_fraction": 0.6424040066777963
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      },
+      "train": {
+        "total_molecules": 22718,
+        "by_k": {
+          "32": {
+            "eligible_molecules": 21178,
+            "retained_fraction": 0.9322123426357954
+          },
+          "64": {
+            "eligible_molecules": 20035,
+            "retained_fraction": 0.8818998151245708
+          },
+          "128": {
+            "eligible_molecules": 18072,
+            "retained_fraction": 0.7954925609648736
+          }
+        },
+        "truth_missing_from_original_pool": 0
+      }
+    },
+    "main_k": 64,
+    "certification_sample_gate_passed": true,
+    "manifest_sha256": "4243b5da5bb90966216ffb81e6241578545372105cb4c433a089c84df663fa9a"
+  },
+  "benchmark": {
+    "experiment_kind": "small_subset_engineering_smoke_not_full_baseline",
+    "completed_steps": 1000,
+    "requested_steps": 1000,
+    "budget_stopped": false,
+    "device": "cuda",
+    "torch_version": "2.3.0+cu121",
+    "numpy_version": "1.24.4",
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "peak_gpu_memory_bytes": 488929280,
+    "peak_gpu_reserved_bytes": 593494016,
+    "peak_process_rss_bytes": 1639157760,
+    "input_validation_and_read_seconds": 1.094691477715969,
+    "input_npz_bytes": 12200389,
+    "loaded_array_bytes": 136262424,
+    "training_seconds": 26.67847553640604,
+    "scoring_seconds": {
+      "mlp_fit": 0.06238880753517151,
+      "nn_fit": 0.11102613806724548,
+      "mlp_eval": 0.05141659080982208,
+      "nn_eval": 0.09930715709924698
+    },
+    "training_step_seconds_median": 0.023719556629657745,
+    "training_step_seconds_p95": 0.025937431305646894,
+    "benchmark_warmup_steps_excluded": 50,
+    "sampled_batch_size": 64,
+    "first_loss": 4.1592631340026855,
+    "final_loss": 3.5089852809906006,
+    "checkpoint_sha256": "07426df19f823938a9b330ad1698ed549cd306bf07733e4c40e5e4e567f7ca70",
+    "config_sha256": "cc02662a065b43365dcbfc70d5b46dfb84c109108949cefd5c2c5b0301a8d75e",
+    "npz_sha256": "254d698b3300be99c2a203d1767783fbefc7627d6bc6957e03a0fd4e9b083f65",
+    "source_commit": "40aa6fa5ca200379bf7ea027087cd3df0f625c8a",
+    "ranker_source_sha256": "03019747886029d5f15a4a235b6992f432205ff38f62aa45339c59e1865e13f1",
+    "scores_path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/runs/bootstrap-20261022/scores.npz",
+    "checkpoint_path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/runs/bootstrap-20261022/checkpoint.pt",
+    "checkpoint_validation": {
+      "prediction_max_abs": 0.0,
+      "optimizer_resume_parameter_max_abs": 0.0,
+      "optimizer_resume_loss_abs": 0.0,
+      "prediction_equal": true,
+      "optimizer_resume_equal": true,
+      "note": "Canary updates are discarded; scored model is the saved checkpoint."
+    },
+    "score_permutation_validation": {
+      "passed": true,
+      "permutation": "reverse_candidate_columns",
+      "score_atol": 1e-06,
+      "cases": {
+        "mlp_fit_present": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.048445992171764374,
+          "passed": true
+        },
+        "mlp_fit_absent": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.04591391235589981,
+          "passed": true
+        },
+        "nn_fit_present": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.04027219116687775,
+          "passed": true
+        },
+        "nn_fit_absent": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.04262969642877579,
+          "passed": true
+        },
+        "mlp_eval_present": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.04257349669933319,
+          "passed": true
+        },
+        "mlp_eval_absent": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.040961235761642456,
+          "passed": true
+        },
+        "nn_eval_present": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.03880711644887924,
+          "passed": true
+        },
+        "nn_eval_absent": {
+          "n_queries": 100,
+          "max_abs_score_difference": 0.0,
+          "changed_top1_identities": 0,
+          "elapsed_seconds": 0.04209378361701965,
+          "passed": true
+        }
+      },
+      "elapsed_seconds": 0.34169742465019226,
+      "timing_note": "Canary wall time is excluded from production scoring_seconds."
+    },
+    "elapsed_seconds": 32.416527315974236,
+    "role_audit": {
+      "train": {
+        "role": "train",
+        "queries": 1000,
+        "molecules": 1000,
+        "K": 64
+      },
+      "fit": {
+        "role": "fit_selector",
+        "queries": 100,
+        "molecules": 100,
+        "K": 64
+      },
+      "eval": {
+        "role": "dev_ranker",
+        "queries": 100,
+        "molecules": 100,
+        "K": 64
+      }
+    },
+    "caveat": "Fit/eval scores are development outputs. No calibration/test scores were loaded or produced."
+  },
+  "selection": {
+    "scope": "100-query engineering smoke; not a trained-model benchmark or certification",
+    "formal_calibration_accessed": false,
+    "test_accessed": false,
+    "npz_sha256": "254d698b3300be99c2a203d1767783fbefc7627d6bc6957e03a0fd4e9b083f65",
+    "scores_sha256": "15be5121503157d46265b910b23c4fecdeebeb534442e68da9624523beaba7b8",
+    "config": {
+      "temporary_fit_role": "fit_selector",
+      "evaluation_role": "dev_ranker",
+      "target_present_risk": 0.1,
+      "target_absent_far": 0.05,
+      "grid_points": 21,
+      "formal_calibration": false
+    },
+    "models": {
+      "mlp": {
+        "temperature": {
+          "temperature": 0.18431340616028744,
+          "nll_before": 4.142164592828771,
+          "nll_after": 4.1075211588265494,
+          "fit_role": "fit_selector",
+          "fit_scenario": "present",
+          "n_molecules": 100,
+          "certified": false
+        },
+        "retrieval_present": {
+          "fit": {
+            "n": 100,
+            "recall_at_1": 0.04,
+            "recall_at_5": 0.13,
+            "recall_at_20": 0.39,
+            "mrr": 0.11308943280708117
+          },
+          "eval": {
+            "n": 100,
+            "recall_at_1": 0.04,
+            "recall_at_5": 0.08,
+            "recall_at_20": 0.32,
+            "mrr": 0.08917204307901848
+          }
+        },
+        "selectors": {
+          "max_score": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "margin": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "max_probability": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "negative_entropy": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "temperature_probability": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          }
+        }
+      },
+      "nn": {
+        "temperature": {
+          "temperature": 0.2562153912635074,
+          "nll_before": 4.148900027970377,
+          "nll_after": 4.136138405992364,
+          "fit_role": "fit_selector",
+          "fit_scenario": "present",
+          "n_molecules": 100,
+          "certified": false
+        },
+        "retrieval_present": {
+          "fit": {
+            "n": 100,
+            "recall_at_1": 0.05,
+            "recall_at_5": 0.13,
+            "recall_at_20": 0.29,
+            "mrr": 0.11104049539535871
+          },
+          "eval": {
+            "n": 100,
+            "recall_at_1": 0.04,
+            "recall_at_5": 0.08,
+            "recall_at_20": 0.33,
+            "mrr": 0.09228993957155644
+          }
+        },
+        "selectors": {
+          "max_score": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "margin": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "max_probability": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "negative_entropy": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          },
+          "temperature_probability": {
+            "rule": {
+              "threshold": null,
+              "reject_all": true,
+              "fit_present_acceptance_rate": 0.0,
+              "fit_present_risk": null,
+              "fit_unknown_far": 0.0,
+              "certified": false,
+              "reason": "No nonempty development acceptance set satisfies empirical targets"
+            },
+            "fit": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            },
+            "eval": {
+              "n_queries": 200,
+              "n_present": 100,
+              "n_absent": 100,
+              "n_accepted": 0,
+              "n_present_accepted": 0,
+              "n_present_accepted_errors": 0,
+              "n_absent_accepted": 0,
+              "acceptance_rate": 0.0,
+              "accepted_error_rate": null,
+              "present_acceptance_rate": 0.0,
+              "present_accepted_error_rate": null,
+              "unknown_far": 0.0
+            }
+          }
+        }
+      }
+    },
+    "elapsed_seconds": 1.3497254103422165,
+    "per_query_sha256": "fc6dc62c01e546a313fb223297284847a5b946856f3a7b82fc750f719fe4a920"
+  },
+  "duplicate_audit": {
+    "status": "complete",
+    "schema_version": 1,
+    "scope": "identity_and_leakage_audit_only",
+    "model_inputs_produced": false,
+    "model_scores_or_metrics_computed": false,
+    "sealed_roles_use": "Exact duplicate leakage audit only; no embedding, binning or model scoring.",
+    "rules": {
+      "raw_peaks": "SHA256 of the exact mzs string, a NUL, and exact intensities string; matches preliminary 133-group/371-row audit method.",
+      "numeric_peaks": "Parse all tokens as finite nonnegative float64, sort (mz,intensity) pairs, serialize float.hex pairs as compact JSON; signed zero normalized, no rounding or binning, preserve repeated peaks.",
+      "intensity_normalization": "none; spectra differing by an intensity scale factor are not declared equal",
+      "composite": "SHA256 of numeric peak hash + exact parsed float64 precursor_mz + stripped adduct; missing precursor/adduct excluded. Instrument and collision_energy recorded as diagnostics, not equality keys.",
+      "peak_buckets": "Mutually exclusive single_peak, two_or_three_peaks, at_least_four_peaks; invalid_numeric separate.",
+      "blocking": "Only selected cross-role AND cross-identity composite-equal queries with >=4 peaks block the smoke; equality alone does not prove copied data or leakage."
+    },
+    "denominators": {
+      "identity_audited_rows": 230815,
+      "excluded_identity_audit_rows": 289,
+      "source_rows_audited": 230815,
+      "numeric_valid_rows": 230815,
+      "numeric_invalid_rows": 0,
+      "composite_eligible_rows": 230815,
+      "roles": {
+        "train": 193846,
+        "fit_selector": 4538,
+        "calibration": 8493,
+        "test": 17550,
+        "dev_ranker": 2763,
+        "pilot_dev": 3625
+      },
+      "selected_queries": 1200,
+      "selected_roles": {
+        "train": 1000,
+        "fit_selector": 100,
+        "dev_ranker": 100
+      }
+    },
+    "numeric_failures": {},
+    "duplicates": {
+      "raw_peaks": {
+        "hashed_rows": 230815,
+        "unique_hashes": 227738,
+        "duplicate_groups": 2720,
+        "rows_in_duplicate_groups": 5797,
+        "groups_with_within_identity_repeats": 2110,
+        "rows_in_within_identity_repeats": 4377,
+        "cross_identity_groups": 614,
+        "rows_in_cross_identity_groups": 1434,
+        "cross_role_groups": 133,
+        "rows_in_cross_role_groups": 371,
+        "cross_role_cross_identity_groups": 133,
+        "rows_in_cross_role_cross_identity_groups": 371,
+        "cross_role_cross_identity_groups_by_peak_count": {
+          "single_peak": 106,
+          "at_least_four_peaks": 27
+        },
+        "cross_role_cross_identity_rows_by_peak_count": {
+          "single_peak": 317,
+          "at_least_four_peaks": 54
+        }
+      },
+      "numeric_peaks": {
+        "hashed_rows": 230815,
+        "unique_hashes": 227738,
+        "duplicate_groups": 2720,
+        "rows_in_duplicate_groups": 5797,
+        "groups_with_within_identity_repeats": 2110,
+        "rows_in_within_identity_repeats": 4377,
+        "cross_identity_groups": 614,
+        "rows_in_cross_identity_groups": 1434,
+        "cross_role_groups": 133,
+        "rows_in_cross_role_groups": 371,
+        "cross_role_cross_identity_groups": 133,
+        "rows_in_cross_role_cross_identity_groups": 371,
+        "cross_role_cross_identity_groups_by_peak_count": {
+          "single_peak": 106,
+          "at_least_four_peaks": 27
+        },
+        "cross_role_cross_identity_rows_by_peak_count": {
+          "single_peak": 317,
+          "at_least_four_peaks": 54
+        }
+      },
+      "composite": {
+        "hashed_rows": 230815,
+        "unique_hashes": 228265,
+        "duplicate_groups": 2374,
+        "rows_in_duplicate_groups": 4924,
+        "groups_with_within_identity_repeats": 2010,
+        "rows_in_within_identity_repeats": 4146,
+        "cross_identity_groups": 365,
+        "rows_in_cross_identity_groups": 780,
+        "cross_role_groups": 12,
+        "rows_in_cross_role_groups": 24,
+        "cross_role_cross_identity_groups": 12,
+        "rows_in_cross_role_cross_identity_groups": 24,
+        "cross_role_cross_identity_groups_by_peak_count": {
+          "at_least_four_peaks": 12
+        },
+        "cross_role_cross_identity_rows_by_peak_count": {
+          "at_least_four_peaks": 24
+        }
+      }
+    },
+    "selected_duplicates": {
+      "raw_peaks": {
+        "hashed_rows": 1200,
+        "unique_hashes": 1200,
+        "duplicate_groups": 0,
+        "rows_in_duplicate_groups": 0,
+        "groups_with_within_identity_repeats": 0,
+        "rows_in_within_identity_repeats": 0,
+        "cross_identity_groups": 0,
+        "rows_in_cross_identity_groups": 0,
+        "cross_role_groups": 0,
+        "rows_in_cross_role_groups": 0,
+        "cross_role_cross_identity_groups": 0,
+        "rows_in_cross_role_cross_identity_groups": 0,
+        "cross_role_cross_identity_groups_by_peak_count": {},
+        "cross_role_cross_identity_rows_by_peak_count": {}
+      },
+      "numeric_peaks": {
+        "hashed_rows": 1200,
+        "unique_hashes": 1200,
+        "duplicate_groups": 0,
+        "rows_in_duplicate_groups": 0,
+        "groups_with_within_identity_repeats": 0,
+        "rows_in_within_identity_repeats": 0,
+        "cross_identity_groups": 0,
+        "rows_in_cross_identity_groups": 0,
+        "cross_role_groups": 0,
+        "rows_in_cross_role_groups": 0,
+        "cross_role_cross_identity_groups": 0,
+        "rows_in_cross_role_cross_identity_groups": 0,
+        "cross_role_cross_identity_groups_by_peak_count": {},
+        "cross_role_cross_identity_rows_by_peak_count": {}
+      },
+      "composite": {
+        "hashed_rows": 1200,
+        "unique_hashes": 1200,
+        "duplicate_groups": 0,
+        "rows_in_duplicate_groups": 0,
+        "groups_with_within_identity_repeats": 0,
+        "rows_in_within_identity_repeats": 0,
+        "cross_identity_groups": 0,
+        "rows_in_cross_identity_groups": 0,
+        "cross_role_groups": 0,
+        "rows_in_cross_role_groups": 0,
+        "cross_role_cross_identity_groups": 0,
+        "rows_in_cross_role_cross_identity_groups": 0,
+        "cross_role_cross_identity_groups_by_peak_count": {},
+        "cross_role_cross_identity_rows_by_peak_count": {}
+      }
+    },
+    "selected_cross_role_count": 0,
+    "selected_cross_role_count_unit": "unique selected query IDs in blocking composite groups, not independent samples or peak-only groups",
+    "selected_cross_role_group_count": 0,
+    "selected_conflicting_query_ids": [],
+    "selected_gate_passed": true,
+    "sources": {
+      "tsv": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/raw/MassSpecGym1.5.tsv",
+      "tsv_sha256": "50cfdd1d22f79543c59555f9ce43c6893bd788a19a42b21fb4e2e3a54673c06a",
+      "audit_sqlite": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/audit.sqlite",
+      "identity_metadata_sha256": "b75785f91f8b9200f1364bb642e8139c287751545075af4000dfe775344ce0f4",
+      "smoke_npz": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/smoke.npz",
+      "smoke_npz_sha256": "254d698b3300be99c2a203d1767783fbefc7627d6bc6957e03a0fd4e9b083f65"
+    },
+    "outputs": {
+      "spectrum_hashes.csv": {
+        "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/spectrum_hashes.csv",
+        "sha256": "43345723c4988a2e1f0030f2667610e1c0c6283cef24bdf5113b44a66dc8924f"
+      },
+      "duplicate_groups.csv": {
+        "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/duplicate_groups.csv",
+        "sha256": "dcafd4519dabe4637919848b7c6315a50e8f02effde8e908a4126145eda55204"
+      },
+      "selected_blocking_conflicts.csv": {
+        "path": "/root/autodl-tmp/MS-RetrieveGuard/artifacts/processed/duplicates/selected_blocking_conflicts.csv",
+        "sha256": "333066bfc16759af826444653a14e93fbd4bea3372dafd4ff9364109b1e35719"
+      }
+    },
+    "limitations": [
+      "Exact equality audit only; no near-duplicate search or numerical tolerance.",
+      "Shared low-information/common-fragment peak lists do not establish leakage.",
+      "Metadata cannot establish whether observations were copied; source-level verification may be required.",
+      "This audit does not inspect candidate pools or change molecule roles/SQLite records."
+    ],
+    "elapsed_seconds": 27.97252020984888
+  },
+  "resources": {
+    "gpu_wall_seconds_total": 32.9296505227685,
+    "gpu_wall_hours_total": 0.009147125145213472,
+    "gpu_wall_hours_limit": 2,
+    "physical_gpu_used_peak_mib_sampled": 1039.0,
+    "telemetry_period_ms": 200,
+    "physical_gpu_used_peak_caveat": "Device-wide nvidia-smi samples include CUDA context/other driver usage; project observed no other compute tasks at start. Sampling is not an instantaneous maximum.",
+    "project_allocated_disk_bytes": 14486052864,
+    "project_disk_limit_bytes": 21474836480,
+    "data_download_bytes": 631503764,
+    "environment_wheel_payload_bytes": 2961106026,
+    "download_payload_estimate_bytes": 3624261748,
+    "download_limit_bytes": 6000000000,
+    "download_caveat": "Wheel sizes verified against cache URLs/PyPI/lock; Python payload rounded; no exact historical network/retry counter. See environment_downloads.json.",
+    "audit_parallel_wall_seconds": 1751.437726303935,
+    "audit_initial_interrupted_wall_seconds": 553.9253921508789,
+    "build_including_duplicate_audit_wall_seconds": 55.5124843865633,
+    "train_candidate_structure_overlap_with_query_roles": {
+      "train": 1349,
+      "test": 4,
+      "fit_selector": 2,
+      "pilot_dev": 3,
+      "calibration": 4
+    },
+    "structure_exposure_note": "Public candidate structures may overlap held-out identities. This is unlabeled structural exposure, not access to held-out spectrum-structure labels. No pretrained spectrum model was used.",
+    "run_dir": "artifacts/runs/bootstrap-20261022"
+  },
+  "source_artifacts_sha256": {
+    "audit_summary": "c432dfb97d0ca1ef218ecdc89ca763783afecea6c7b764f99df4e875d4b58466",
+    "benchmark": "134a48538df929445751f59d34dd0b39840d7a5c23a6839e55f502f5651172a3",
+    "selection": "e1ecbd4c9551329a28f0a99b8483f7e09a71b0c62853a279045e59713a49a421"
+  }
+}

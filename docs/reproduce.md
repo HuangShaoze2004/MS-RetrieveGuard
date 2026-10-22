@@ -14,7 +14,7 @@ export PYTHONPATH="$PWD/src"
 export OMP_NUM_THREADS=8
 export MKL_NUM_THREADS=8
 mkdir -p "$TMPDIR"
-uv venv --managed-python --python 3.11 --no-project artifacts/envs/core
+uv venv --managed-python --python 3.11.16 --no-project artifacts/envs/core
 uv pip sync --python artifacts/envs/core/bin/python --require-hashes requirements.lock
 uv pip check --python artifacts/envs/core/bin/python
 artifacts/envs/core/bin/python -m pytest -q
