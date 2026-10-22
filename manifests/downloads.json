@@ -1,0 +1,25 @@
+{
+  "dataset": "roman-bushuiev/MassSpecGym",
+  "revision": "d2e86d0c3bd905a6d578c0dd6053ed2bd41f9c2a",
+  "files": [
+    {
+      "remote_path": "data/MassSpecGym1.5.tsv",
+      "local_path": "artifacts/raw/MassSpecGym1.5.tsv",
+      "bytes": 261197365,
+      "sha256": "50cfdd1d22f79543c59555f9ce43c6893bd788a19a42b21fb4e2e3a54673c06a",
+      "verified": true,
+      "downloaded_bytes_this_run": 261197365,
+      "seconds": 43.71734159439802
+    },
+    {
+      "remote_path": "data/molecules/MassSpecGym1.5_retrieval_candidates_formula.json",
+      "local_path": "artifacts/raw/MassSpecGym1.5_retrieval_candidates_formula.json",
+      "bytes": 370306399,
+      "sha256": "454636d2346aebb3cd87edc2efc3fa1bf91eb8e0219edff5880f02aa537ac954",
+      "verified": true,
+      "downloaded_bytes_this_run": 370306399,
+      "seconds": 69.51926769316196
+    }
+  ],
+  "network_data_bytes": 631503764
+}

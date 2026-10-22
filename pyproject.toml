@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ms-retrieve-guard"
+version = "0.1.0"
+description = "Molecule-grouped audits of selective MS/MS retrieval"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==1.24.4",
+  "scipy==1.11.4",
+  "scikit-learn==1.4.2",
+  "rdkit==2023.9.4",
+  "PyYAML==6.0.2",
+  "ijson==3.3.0",
+  "torch==2.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ms_retrieve_guard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

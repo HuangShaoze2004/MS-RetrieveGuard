@@ -1,0 +1,53 @@
+schema_version: 1
+scope: bootstrap_100_queries
+seeds:
+  split: 1729
+  candidate: 42
+  training: 0
+data:
+  dataset: roman-bushuiev/MassSpecGym
+  revision: d2e86d0c3bd905a6d578c0dd6053ed2bd41f9c2a
+  tsv: artifacts/raw/MassSpecGym1.5.tsv
+  candidates: artifacts/raw/MassSpecGym1.5_retrieval_candidates_formula.json
+  information_condition: known_formula
+  output_dir: artifacts/processed
+  split_seed: 1729
+  candidate_seed: 42
+  k_values: [32, 64, 128]
+  val_fractions: [0.15, 0.25, 0.40, 0.20]
+  mass_tolerance_da: 0.1
+  chemistry_workers: 4
+  chemistry_batch_size: 1024
+  n_train: 1000
+  n_fit: 100
+  n_eval: 100
+  candidate_mechanism: U
+  smoke_path: artifacts/processed/smoke.npz
+ranker:
+  seed: 0
+  train_steps: 1000
+  batch_size: 64
+  temperature: 1.0
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  grad_clip: 1.0
+  hidden_dim: 1024
+  input_dim: 10050
+  output_dim: 4096
+  torch_num_threads: 8
+  max_gpu_seconds: 3600
+  device: cuda
+selection:
+  temporary_fit_role: fit_selector
+  evaluation_role: dev_ranker
+  target_present_risk: 0.10
+  target_absent_far: 0.05
+  grid_points: 21
+  formal_calibration: false
+limits:
+  gpu_wall_seconds: 7200
+  download_bytes: 6000000000
+  project_disk_bytes: 21474836480
+  own_rss_bytes: 12884901888
+  gpu_jobs: 1
+  sealed_roles: [calibration, test]

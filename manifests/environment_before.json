@@ -1,0 +1,33 @@
+{
+  "audit_utc": "2026-10-22T06:38:11Z",
+  "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+  "initial_python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+  "executable": "/root/miniconda3/bin/python",
+  "commands": {
+    "git": {
+      "returncode": 0,
+      "stdout": "## research/bootstrap-audit\n?? .gitignore\n?? AGENTS.md\n?? configs/\n?? pyproject.toml\n?? requirements.lock\n?? src/\n",
+      "stderr": ""
+    },
+    "commit": {
+      "returncode": 0,
+      "stdout": "65f5a613d5399601f2e1dc3d8e6495432ba0b65f\n",
+      "stderr": ""
+    },
+    "gpu": {
+      "returncode": 0,
+      "stdout": "Thu Oct 22 14:38:11 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 570.124.04             Driver Version: 570.124.04     CUDA Version: 12.8     |\n|-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 4090        On  |   00000000:16:00.0 Off |                  Off |\n| 35%   36C    P8             15W /  450W |       1MiB /  24564MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n                                                                                         \n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "disk": {
+      "returncode": 0,
+      "stdout": "Filesystem     Type     Size  Used Avail Use% Mounted on\n/dev/md0       xfs      1.1T  138G  988G  13% /root/autodl-tmp\noverlay        overlay   30G   26G  4.8G  85% /\n",
+      "stderr": ""
+    }
+  },
+  "cpu.max": "2500000 100000\n",
+  "memory.max": "96636764160\n",
+  "memory.current": "86131507200\n",
+  "memory.stat": "anon 22604021760\nfile 62231457792\nkernel_stack 41549824\npagetables 193957888\npercpu 24192\nsock 65536\nshmem 3752300544\nfile_mapped 4118355968\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 24420491264\nactive_anon 1932562432\ninactive_file 27964141568\nactive_file 30517182464\nunevictable 0\nslab_reclaimable 994700728\nslab_unreclaimable 49468200\nslab 1044168928\nworkingset_refault_anon 0\nworkingset_refault_file 2746453\nworkingset_activate_anon 0\nworkingset_activate_file 1877650\nworkingset_restore_anon 0\nworkingset_restore_file 1451481\nworkingset_nodereclaim 0\npgfault 20867502493\npgmajfault 64985\npgrefill 973476\npgscan 7623251\npgsteal 7561156\npgactivate 18048162\npgdeactivate 974432\npglazyfree 9748\npglazyfreed 5678\nthp_fault_alloc 0\nthp_collapse_alloc 0\n",
+  "note": "Full local snapshot remains in ignored artifacts/runs/environment_before_raw.json; unrelated environment paths omitted from the tracked summary."
+}

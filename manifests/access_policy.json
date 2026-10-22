@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "sealed_since_utc": "2026-10-22T06:38:11+00:00",
+  "not_before_utc": "2026-11-05T06:38:11+00:00",
+  "sealed_roles": [
+    "calibration",
+    "test"
+  ],
+  "allowed_while_sealed": [
+    "identity",
+    "duplicate",
+    "split",
+    "candidate_eligibility",
+    "pretraining_exposure_metadata"
+  ],
+  "forbidden_while_sealed": [
+    "retrieval_scores",
+    "embeddings",
+    "retrieval_metrics",
+    "selector_fitting",
+    "threshold_tuning"
+  ],
+  "time_alone_does_not_unlock": true,
+  "requires_frozen_protocol": true,
+  "calibration_reuse_after_method_change": false
+}
